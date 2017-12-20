@@ -1,0 +1,31 @@
+{
+    "name": "maxim/time-web-test",
+    "description": "TimeWeb test application",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Maxim Karpenko",
+            "email": "karpenko.mi89@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "zendframework/zend-db": "^2.9",
+        "twbs/bootstrap": "^3.3",
+        "phing/phing": "^2.16",
+        "robmorgan/phinx": "^0.9.1",
+        "components/jquery": ">=1.9.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Library\\": "application/library/",
+            "Controller\\": "application/controller/",
+            "Model\\": "application/model/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump":[
+            "vendor/bin/phing"
+        ]
+    }
+}

@@ -1,0 +1,6 @@
+.idea
+vendor
+config
+!config/main.example.php
+phinx.yml
+public/assets

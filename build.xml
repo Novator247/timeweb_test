@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="TimeWebTest" default="assets">
+
+    <target name="assets" depends="db_migrations">
+        <property name="assets_dir" value="./public/assets" override="true" />
+
+        <property name="bootstrap_src" value="./vendor/twbs/bootstrap/dist" override="true" />
+        <property name="jquery_src" value="./vendor/components/jquery/jquery.min.js" override="true" />
+
+        <echo msg="Updating assets..." />
+
+        <delete dir="${assets_dir}" quiet='true' />
+        <mkdir dir="${assets_dir}" />
+
+        <copy todir="${assets_dir}" >
+            <fileset defaultexcludes="false" expandsymboliclinks="true" dir="${bootstrap_src}">
+                <include name="**" />
+            </fileset>
+        </copy>
+
+        <copy file="${jquery_src}" todir="${assets_dir}/js" overwrite="true"/>
+    </target>
+
+    <target name="db_migrations" >
+        <echo msg="Migrate db..." />
+        <exec command="php vendor/bin/phinx migrate" dir="."/>
+    </target>
+
+</project>

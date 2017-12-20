@@ -1,0 +1,16 @@
+paths:
+    migrations: %%PHINX_CONFIG_DIR%%/application/migrations
+
+environments:
+    default_migration_table: phinxlog
+    default_database: production
+    production:
+        adapter: mysql
+        host: localhost
+        name: timeweb
+        user: root
+        pass: root
+        port: 3306
+        charset: utf8
+
+version_order: creation
